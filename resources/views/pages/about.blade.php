@@ -79,7 +79,10 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    About Page
+                    About Page <p>{{$data[0]}}</p>
+                </div>
+                <div>
+                    <p>{{$data[2]}}</p>
                 </div>
 
                 <div class="links">
