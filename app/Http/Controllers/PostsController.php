@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Post;
 use Illuminate\Http\Request;
 
 class PostsController extends Controller
@@ -25,6 +26,7 @@ class PostsController extends Controller
     public function create()
     {
         //
+        return view('pages.posts.createPost');
     }
 
     /**
@@ -35,7 +37,20 @@ class PostsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //Data validation
+        $request->validate([
+            'title' => 'required|max:255|alpha_num',
+            'body' => 'required|max:500|alpha_num'
+        ]);
+        //Store to db
+        $post = new Post;
+
+        $post->title = $request->input('title');
+        $post->body = $request->input('body');
+        //Redirect
+        if ($post->save()){
+            return redirect()->route('posts.show', $post->id)->with('success', 'Post added!');
+        }
     }
 
     /**
