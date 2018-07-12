@@ -40,7 +40,7 @@ class PostsController extends Controller
     {
         //Data validation
         $request->validate([
-            'title' => 'required|max:255|alpha_num',
+            'title' => 'required|max:255|alpha_num|unique:posts',
             'body' => 'required|max:500|alpha_num'
         ]);
         //Store to db
