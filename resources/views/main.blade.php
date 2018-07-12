@@ -1,3 +1,4 @@
+
 @include('partials._head')
 @include('includes.navigation.nav')
 

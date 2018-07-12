@@ -92,5 +92,6 @@
             font-size: 1.5em;
         }
     </style>
+{{Html::style('css/styles.css')}}
     @yield('stylesheets')
 </head>

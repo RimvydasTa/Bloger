@@ -16,6 +16,8 @@ class PostsController extends Controller
     public function index()
     {
         //
+        $posts = Post::all();
+        return view('pages.posts.index')->with('posts', $posts);
 
     }
 
@@ -40,8 +42,8 @@ class PostsController extends Controller
     {
         //Data validation
         $request->validate([
-            'title' => 'required|max:255|alpha_num|unique:posts',
-            'body' => 'required|max:500|alpha_num'
+            'title' => 'required|max:255|unique:posts',
+            'body' => 'required|max:500'
         ]);
         //Store to db
         $post = new Post;
@@ -65,7 +67,8 @@ class PostsController extends Controller
     public function show($id)
     {
         //
-        return view('pages.posts.show');
+        $post = Post::find($id);
+        return view('pages.posts.show')->with('post', $post);
     }
 
     /**
