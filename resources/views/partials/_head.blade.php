@@ -92,4 +92,5 @@
             font-size: 1.5em;
         }
     </style>
+    @yield('stylesheets')
 </head>
