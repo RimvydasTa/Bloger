@@ -5,6 +5,14 @@
     </div>
     @endif
 
+@if(session()->has('success-delete'))
+    <div class="alert alert-danger">
+        <strong>Success</strong>
+        {{session()->get('success-delete')}}
+    </div>
+@endif
+
+
 @if(count($errors->all()) > 0)
     <div class="alert alert-danger">
         <strong>Errors:</strong>
