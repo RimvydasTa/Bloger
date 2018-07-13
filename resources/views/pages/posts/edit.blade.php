@@ -4,12 +4,15 @@
 
 @section('content')
     <div class="row">
+        {{Form::model($post, ['route' => ['posts.update', $post->id], 'method'=> 'PUT'])}}
         <div class="col-md-8">
             <h1>Edit Post</h1>
-            {{Form::model($post, ['route' => ['posts.update', $post->id]])}}
+
+                {{Form::label('title','Title')}}
                 {{Form::text('title',null,  ['class' => 'form-control'])}}
+                {{Form::label('body','Body')}}
                 {{Form::textarea('body', null,  ['class' => 'form-control'])}}
-            {{Form::close()}}
+
         </div>
         <div class="col-md-4">
             <div class="well">
@@ -29,12 +32,15 @@
 
                     </div>
                     <div class="col-sm-6">
-                        {{ Html::linkRoute('posts.update', 'Save Changes', [$post->id], ['class' => 'btn btn-success btn-block']) }}
+                        {{ Form::submit('Save Changes', ['class'=> 'btn btn-success btn-block']) }}
 
                     </div>
+
                 </div>
 
             </div>
         </div>
+        {{Form::close()}}
     </div>
+
     @endsection
