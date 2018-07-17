@@ -9,13 +9,17 @@
             <h1 class="text-center">Create New Post</h1>
 
             {!! Form::open(['route' => 'posts.store', 'data-parsley-validate' => '']) !!} <!-- Open form -->
-               {{--Title input--}}
+                {{--Title input--}}
                 {{ Form::label('title', "Title:") }}
                 {{ Form::text('title', '', ['class' => 'form-control', 'required' => '', 'max-length' => '255']) }}
 
+                {{--Slug input--}}
+                {{ Form::label('slug', "Slug:") }}
+                {{ Form::text('slug', '', ['class' => 'form-control', 'required' => '', 'max-length' => '255']) }}
+
                 {{--Textarea--}}
                 {{Form::label('body', 'Body:')}}
-                {{Form::textarea('body', '', ['class' => 'form-control','required' => '', 'placeholder' => 'Post body', 'max-length' => '500'])}}
+                {{Form::textarea('body', '', ['class' => 'form-control','required' => '', 'placeholder' => 'Post body', 'max-length' => '500', 'min-length'=> '5'])}}
 
                 {{--Submit button--}}
                 {{ Form::submit('Create new Post', ['class' => 'btn btn-lg btn-success btn-block', 'style' => 'margin-top:20px']) }}
@@ -27,4 +31,4 @@
 
 @section('scripts')
     {{ Html::script('js/parsley.min.js') }}
-    @endsection
+@endsection

@@ -42,13 +42,15 @@ class PostsController extends Controller
     {
         //Data validation
         $request->validate([
-            'title' => 'required|max:255|unique:posts',
+            'title' => 'required|max:255|unique:posts,title',
+            'slug' => 'required|alpha_dash|max:255|min:5|unique:posts,slug',
             'body' => 'required|max:500'
         ]);
         //Store to db
         $post = new Post;
 
         $post->title = $request->input('title');
+        $post->slug = $request->input('slug');
         $post->body = $request->input('body');
 
         $request->session()->flash('success', 'The blog post was successfully saved!');
@@ -97,12 +99,14 @@ class PostsController extends Controller
         //Data validation
         $request->validate([
             'title' => 'required|max:255',
+            'slug' => 'required|alpha_dash|max:255|min:5|unique:posts,slug',
             'body' => 'required|max:500'
         ]);
         //Store to db
         $post = Post::find($id);
 
         $post->title = $request->input('title');
+        $post->slug = $request->input('slug');
         $post->body = $request->input('body');
 
         $request->session()->flash('success', 'The blog post was successfully updated!');

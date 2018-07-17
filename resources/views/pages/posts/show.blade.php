@@ -11,6 +11,10 @@
         <div class="col-md-4">
             <div class="well">
                 <dl class="dl-horizontal">
+                    <dt>Post slug:</dt>
+                    <dd><a href="{{ url($post->slug) }}">{{$post->slug}}</a></dd>
+                </dl>
+                <dl class="dl-horizontal">
                     <dt>Created At:</dt>
                     <dd>{{$post->created_at}}</dd>
                 </dl>
