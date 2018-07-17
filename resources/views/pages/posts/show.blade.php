@@ -29,7 +29,13 @@
                         {{ Form::submit('Delete', ['class'=> 'btn btn-block btn-danger']) }}
                         {{Form::close()}}
 
+                        <hr>
+                    </div>
+                    <div class="row">
+                        <div class=" col-md-offset-1 col-md-10">
+                            {{Html::linkRoute('posts.index', ' << Show All Posts', '', ['class' => 'btn btn-block btn-default'])}}
 
+                        </div>
                     </div>
                 </div>
 

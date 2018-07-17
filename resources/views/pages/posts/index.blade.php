@@ -35,7 +35,7 @@
                       <td>{{$post->created_at}}</td>
                       <td>
                           {{Html::linkRoute('posts.show', 'View Post', $post->id, ['class' => 'btn btn-s btn-primary'])}}
-                          {{Html::linkRoute('posts.edit', 'Edit Post', $post->id, ['class' => 'btn btn-s btn-info'])}}
+                          {{Html::linkRoute('posts.edit', 'Edit Post', $post->id, ['class' => 'btn btn-`s btn-info'])}}
                       </td>
                     </tr>
                     @endforeach
